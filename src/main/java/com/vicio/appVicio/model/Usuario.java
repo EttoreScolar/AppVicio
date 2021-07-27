@@ -48,4 +48,8 @@ public class Usuario {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Vicio> vicio;
 
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private List<UsuarioTrofeu> usuarioTrofeus;
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "trofeu", schema = "bd1")
@@ -31,6 +32,15 @@ public class Trofeu implements Serializable {
     @Column(name="pre_requisito")
     private String preRequisito;
 
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tipo")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private List<UsuarioTrofeu> trofeuUsuarioTipo;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_nivel")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private List<UsuarioTrofeu> trofeuUsuarioNivel;
 }
 
 class TrofeuId implements Serializable {
