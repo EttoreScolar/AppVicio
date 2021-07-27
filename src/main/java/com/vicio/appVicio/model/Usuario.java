@@ -57,4 +57,9 @@ public class Usuario {
     @JoinColumn(name = "id_usuario")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<UsuarioTrofeu> usuarioTrofeus;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private List<UsuarioImagem> usuarioImagens;
 }
