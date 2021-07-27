@@ -1,9 +1,11 @@
 package com.vicio.appVicio.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "usuario", schema = "bd1")
@@ -35,5 +37,15 @@ public class Usuario {
 
     @Column(name="joins")
     private Double joins;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Endereco endereco;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private List<Vicio> vicio;
 
 }
