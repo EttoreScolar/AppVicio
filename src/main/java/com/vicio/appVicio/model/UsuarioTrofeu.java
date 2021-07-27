@@ -3,11 +3,13 @@ package com.vicio.appVicio.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name="usuario_trofeu", schema="bd1")
 @Data
+@IdClass(UsuarioTrofeuId.class)
 public class UsuarioTrofeu {
 
     @Id
@@ -16,9 +18,16 @@ public class UsuarioTrofeu {
 
     @Id
     @Column(name = "id_tipo")
-    private Date idTipo;
+    private Integer idTipo;
 
     @Id
     @Column(name = "id_nivel")
-    private Date idNivel;
+    private Integer idNivel;
+}
+
+class UsuarioTrofeuId implements Serializable {
+
+    private Integer idUsuario;
+    private Integer idTipo;
+    private Integer idNivel;
 }

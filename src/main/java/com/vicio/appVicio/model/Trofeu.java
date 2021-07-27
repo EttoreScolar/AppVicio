@@ -33,14 +33,13 @@ public class Trofeu implements Serializable {
     private String preRequisito;
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_tipo")
+    @JoinColumns({
+            @JoinColumn(name = "id_tipo"),
+            @JoinColumn(name = "id_nivel")
+    })
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private List<UsuarioTrofeu> trofeuUsuarioTipo;
+    private List<UsuarioTrofeu> trofeuUsuario;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_nivel")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private List<UsuarioTrofeu> trofeuUsuarioNivel;
 }
 
 class TrofeuId implements Serializable {
