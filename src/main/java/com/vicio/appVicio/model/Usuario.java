@@ -46,6 +46,11 @@ public class Usuario {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private List<Vicio> vicio;
+    private List<Vicio> vicios;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private List<Feedback> feedbacks;
 
 }

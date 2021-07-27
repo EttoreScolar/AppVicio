@@ -1,9 +1,7 @@
 package com.vicio.appVicio.controller;
 
 import com.vicio.appVicio.model.Imagem;
-import com.vicio.appVicio.model.Usuario;
 import com.vicio.appVicio.service.ImagemService;
-import com.vicio.appVicio.service.UsuarioService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
