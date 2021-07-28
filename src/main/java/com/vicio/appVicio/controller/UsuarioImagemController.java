@@ -49,21 +49,21 @@ public class UsuarioImagemController {
 
     @ApiOperation(value = "Listar por Id de Usuário e Imagem")
     @GetMapping("/{id}")
-    public ResponseEntity<UsuarioImagem> buscaIdUsuarioImagem (@PathVariable Integer id_usuario, @PathVariable Integer id_imagem){
+    public ResponseEntity<UsuarioImagem> buscaIdUsuarioImagem (@RequestParam Integer id_usuario, @RequestParam Integer id_imagem){
         UsuarioImagem usuarioImagem = usuarioImagemService.buscaIdUsuarioImagem(id_usuario, id_imagem);
         return ResponseEntity.ok(usuarioImagem);
     }
 
     @ApiOperation(value = "Listar por Id de Usuário")
     @GetMapping("/{id_usuario}")
-    public ResponseEntity<UsuarioImagem> buscaIdUsuario (@PathVariable Integer id_usuario){
+    public ResponseEntity<UsuarioImagem> buscaIdUsuario (@RequestParam Integer id_usuario){
         UsuarioImagem usuarioImagem = usuarioImagemService.buscaIdUsuario(id_usuario);
         return ResponseEntity.ok(usuarioImagem);
     }
 
     @ApiOperation(value = "Listar por Id de Imagem")
     @GetMapping("/{id_imagem}")
-    public ResponseEntity<UsuarioImagem> buscaIdImagem (@PathVariable Integer id_imagem){
+    public ResponseEntity<UsuarioImagem> buscaIdImagem (@RequestParam Integer id_imagem){
         UsuarioImagem usuarioImagem = usuarioImagemService.buscaIdImagem(id_imagem);
         return ResponseEntity.ok(usuarioImagem);
     }

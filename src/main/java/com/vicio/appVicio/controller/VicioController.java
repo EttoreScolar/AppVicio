@@ -36,7 +36,7 @@ public class VicioController {
 
     @ApiOperation(value = "Listar por Id de Usuário")
     @GetMapping("/{id_usuario}")
-    public ResponseEntity<Vicio> buscaIdUsuario (@PathVariable Integer id_usuario){
+    public ResponseEntity<Vicio> buscaIdUsuario (@RequestParam Integer id_usuario){
         Vicio vicio = vicioService.buscaIdUsuario(id_usuario);
         return ResponseEntity.ok(vicio);
     }

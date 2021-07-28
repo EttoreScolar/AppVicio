@@ -36,7 +36,7 @@ public class FeedBackController {
 
     @ApiOperation(value = "Listar por Id de Usuário")
     @GetMapping("/{id_usuario}")
-    public ResponseEntity<Feedback> buscaIdUsuario (@PathVariable Integer id){
+    public ResponseEntity<Feedback> buscaIdUsuario (@RequestParam Integer id){
         Feedback feedback = feedbackService.buscaIdUsuario(id);
         return ResponseEntity.ok(feedback);
     }
