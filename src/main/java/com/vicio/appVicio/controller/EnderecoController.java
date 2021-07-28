@@ -34,6 +34,13 @@ public class EnderecoController {
         return endereco.isPresent() ? ResponseEntity.ok(endereco) : ResponseEntity.notFound().build();
     }
 
+    @ApiOperation(value = "Listar por Id de Usuário")
+    @GetMapping("/{id_usuario}")
+    public ResponseEntity<Endereco> buscaIdUsuario (@RequestParam Integer id_usuario){
+        Endereco endereco = enderecoService.buscaIdUsuario(id_usuario);
+        return ResponseEntity.ok(endereco);
+    }
+
     @ApiOperation(value = "Salvar")
     @PostMapping
     public ResponseEntity<Endereco> salvarendereco (@Valid @RequestBody Endereco endereco){

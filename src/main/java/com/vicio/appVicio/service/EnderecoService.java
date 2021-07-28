@@ -24,6 +24,8 @@ public class EnderecoService {
         return enderecoRepository.findById(id);
     }
 
+    public Endereco buscaIdUsuario (Integer id) { return enderecoRepository.buscaIdUsuario(id); }
+
     public Endereco salvarendereco (Endereco endereco){
         return enderecoRepository.save(endereco);
     }

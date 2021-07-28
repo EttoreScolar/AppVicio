@@ -1,5 +1,6 @@
 package com.vicio.appVicio.controller;
 
+import com.vicio.appVicio.model.UsuarioImagem;
 import com.vicio.appVicio.model.UsuarioTrofeu;
 import com.vicio.appVicio.service.UsuarioTrofeuService;
 import io.swagger.annotations.Api;
@@ -46,5 +47,24 @@ public class UsuarioTrofeuController {
         usuarioTrofeuService.deletar(id);
     }
 
+    @ApiOperation(value = "Listar por Id de Usuário, Tipo e Nível")
+    @GetMapping("/{id_usuario_tipo_nivel}")
+    public ResponseEntity<UsuarioTrofeu> buscaIdUsuarioTipoNivel (@PathVariable Integer id_usuario, @PathVariable Integer id_tipo, @PathVariable Integer id_nivel){
+        UsuarioTrofeu usuarioImagem = usuarioTrofeuService.buscaIdUsuarioTipoNivel(id_usuario, id_tipo, id_nivel);
+        return ResponseEntity.ok(usuarioImagem);
+    }
 
+    @ApiOperation(value = "Listar por Id de Usuário e Tipo")
+    @GetMapping("/{id_usuario_tipo}")
+    public ResponseEntity<UsuarioTrofeu> buscaIdUsuarioTrofeuTipo (@PathVariable Integer id_usuario, @PathVariable Integer id_tipo){
+        UsuarioTrofeu usuarioImagem = usuarioTrofeuService.buscaIdUsuarioTipo(id_usuario, id_tipo);
+        return ResponseEntity.ok(usuarioImagem);
+    }
+
+    @ApiOperation(value = "Listar por Id de Usuário e Nível")
+    @GetMapping("/{id_usuario_nivel}")
+    public ResponseEntity<UsuarioTrofeu> buscaIdUsuarioNivel (@PathVariable Integer id_usuario, @PathVariable Integer id_nivel){
+        UsuarioTrofeu usuarioImagem = usuarioTrofeuService.buscaIdUsuarioTipo(id_usuario, id_nivel);
+        return ResponseEntity.ok(usuarioImagem);
+    }
 }

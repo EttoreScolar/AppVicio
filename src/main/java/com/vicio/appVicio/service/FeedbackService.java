@@ -25,6 +25,10 @@ public class FeedbackService {
         return feedbackRepository.findById(id);
     }
 
+    public Feedback buscaIdUsuario (Integer id) {
+        return feedbackRepository.buscaIdUsuario(id);
+    }
+
     public Feedback salvarfeedback (Feedback feedback){
         return feedbackRepository.save(feedback);
     }

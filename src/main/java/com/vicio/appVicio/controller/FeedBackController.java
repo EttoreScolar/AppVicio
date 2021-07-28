@@ -34,6 +34,13 @@ public class FeedBackController {
         return feedback.isPresent() ? ResponseEntity.ok(feedback) : ResponseEntity.notFound().build();
     }
 
+    @ApiOperation(value = "Listar por Id de Usuário")
+    @GetMapping("/{id_usuario}")
+    public ResponseEntity<Feedback> buscaIdUsuario (@PathVariable Integer id){
+        Feedback feedback = feedbackService.buscaIdUsuario(id);
+        return ResponseEntity.ok(feedback);
+    }
+
     @ApiOperation(value = "Salvar")
     @PostMapping
     public ResponseEntity<Feedback> salvarfeedback (@Valid @RequestBody Feedback feedback){

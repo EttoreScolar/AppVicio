@@ -1,6 +1,7 @@
 package com.vicio.appVicio.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,8 +16,10 @@ public class Endereco {
     @Column(name = "id_endereco")
     private Integer enderecoId;
 
-    @Column(name = "id_usuario")
-    private Integer usuarioId;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Usuario usuario;
 
     @Column(name="uf")
     private String uf;

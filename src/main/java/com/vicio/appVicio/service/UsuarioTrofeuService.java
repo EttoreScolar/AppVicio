@@ -24,6 +24,18 @@ public class UsuarioTrofeuService {
         return usuarioTrofeuRepository.findById(id);
     }
 
+    public UsuarioTrofeu buscaIdUsuarioTipoNivel (Integer id_usuario, Integer id_tipo, Integer id_nivel) {
+        return usuarioTrofeuRepository.buscaIdUsuarioTipoNivel(id_usuario, id_tipo, id_nivel);
+    }
+
+    public UsuarioTrofeu buscaIdUsuarioTipo (Integer id_usuario, Integer id_tipo) {
+        return usuarioTrofeuRepository.buscaIdUsuarioTipo(id_usuario, id_tipo);
+    }
+
+    public UsuarioTrofeu buscaIdUsuarioNivel (Integer id_usuario, Integer id_nivel) {
+        return usuarioTrofeuRepository.buscaIdUsuarioNivel(id_usuario, id_nivel);
+    }
+
     public UsuarioTrofeu salvarUsuarioTrofeu (UsuarioTrofeu usuarioTrofeu){
         return usuarioTrofeuRepository.save(usuarioTrofeu);
     }

@@ -34,6 +34,13 @@ public class VicioController {
         return vicio.isPresent() ? ResponseEntity.ok(vicio) : ResponseEntity.notFound().build();
     }
 
+    @ApiOperation(value = "Listar por Id de Usuário")
+    @GetMapping("/{id_usuario}")
+    public ResponseEntity<Vicio> buscaIdUsuario (@PathVariable Integer id_usuario){
+        Vicio vicio = vicioService.buscaIdUsuario(id_usuario);
+        return ResponseEntity.ok(vicio);
+    }
+
     @ApiOperation(value = "Salvar")
     @PostMapping
     public ResponseEntity<Vicio> salvarvicio (@Valid @RequestBody Vicio vicio){

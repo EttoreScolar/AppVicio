@@ -24,6 +24,18 @@ public class UsuarioImagemService {
         return usuarioImagemRepository.findById(id);
     }
 
+    public UsuarioImagem buscaIdUsuarioImagem (Integer id_usuario, Integer id_imagem) {
+        return usuarioImagemRepository.buscaIdUsuarioImagem(id_usuario, id_imagem);
+    }
+
+    public UsuarioImagem buscaIdUsuario (Integer id) {
+        return usuarioImagemRepository.buscaIdUsuario(id);
+    }
+
+    public UsuarioImagem buscaIdImagem (Integer id) {
+        return usuarioImagemRepository.buscaIdImagem(id);
+    }
+
     public UsuarioImagem salvarUsuarioImagem (UsuarioImagem usuarioImagem){
         return usuarioImagemRepository.save(usuarioImagem);
     }

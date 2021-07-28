@@ -25,6 +25,10 @@ public class VicioService {
         return vicioRepository.findById(id);
     }
 
+    public Vicio buscaIdUsuario (Integer id) {
+        return vicioRepository.buscaIdUsuario(id);
+    }
+
     public Vicio salvarvicio (Vicio vicio){
         return vicioRepository.save(vicio);
     }

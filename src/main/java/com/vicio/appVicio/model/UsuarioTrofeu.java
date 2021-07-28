@@ -1,10 +1,12 @@
 package com.vicio.appVicio.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="usuario_trofeu", schema="bd1")
@@ -12,9 +14,10 @@ import java.util.Date;
 @IdClass(UsuarioTrofeuId.class)
 public class UsuarioTrofeu {
 
-    @Id
-    @Column(name = "id_usuario")
-    private Integer idUsuario;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Usuario usuario;
 
     @Id
     @Column(name = "id_tipo")
@@ -27,7 +30,6 @@ public class UsuarioTrofeu {
 
 class UsuarioTrofeuId implements Serializable {
 
-    private Integer idUsuario;
     private Integer idTipo;
     private Integer idNivel;
 }

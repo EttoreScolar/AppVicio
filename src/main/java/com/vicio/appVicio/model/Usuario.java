@@ -37,29 +37,4 @@ public class Usuario {
 
     @Column(name="joins")
     private Double joins;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Endereco endereco;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private List<Vicio> vicios;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private List<Feedback> feedbacks;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private List<UsuarioTrofeu> usuarioTrofeus;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private List<UsuarioImagem> usuarioImagens;
 }
