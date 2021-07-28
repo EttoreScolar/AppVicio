@@ -1,6 +1,7 @@
-Trabalho da disciplina de Banco de Dados I
+#Trabalho da disciplina de Banco de Dados I
 
- Realizado por:
+
+##Realizado por:
  
 Ettore Scolar Neto		    	RA: 191021512
 
@@ -12,7 +13,8 @@ Vitor Trentim de Almeida		RA: 191021067
 
 
 
-Instruções:
+##Instruções:
+
 1- Necessária a instalação do Java
 
 2- Baixar o projeto
