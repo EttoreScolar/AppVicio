@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>Form</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Rua</th>
+        <th>Numero</th>
+        <th>Cep</th>
+        <th>Cidade</th>
+        <th>UF</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="endereco: ${enderecos}">
+        <td th:text="${endereco.rua}"/>
+        <td th:text="${endereco.numero}"/>
+        <td th:text="${endereco.cep}"/>
+        <td th:text="${endereco.cidade}"/>
+        <td th:text="${endereco.uf}"/>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
