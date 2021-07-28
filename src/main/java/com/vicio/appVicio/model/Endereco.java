@@ -7,22 +7,21 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
-@Table(name="endereco", schema="bd1")
+@Table(name="endereco", schema="app_vicios")
 @Data
 public class Endereco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_endereco")
-    private Integer enderecoId;
+    @Column(name="id_usuario")
+    private Integer id_usuario;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario")
+    @PrimaryKeyJoinColumn(name="id_usuario", referencedColumnName="id_usuario")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Usuario usuario;
 
-    @Column(name="uf")
-    private String uf;
+    @Column(name="estado")
+    private String estado;
 
     @Column(name="cidade")
     private String cidade;

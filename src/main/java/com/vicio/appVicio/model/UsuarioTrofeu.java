@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name="usuario_trofeu", schema="bd1")
+@Table(name="usuario_trofeu", schema="app_vicios")
 @Data
 @IdClass(UsuarioTrofeuId.class)
 public class UsuarioTrofeu {

@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name="vicio", schema="bd1")
+@Table(name="vicio", schema="app_vicios")
 @Data
 public class Vicio {
 

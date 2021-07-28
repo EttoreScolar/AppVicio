@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "trofeu", schema = "bd1")
+@Table(name = "trofeu", schema = "app_vicios")
 @Data
 @IdClass(TrofeuId.class)
 public class Trofeu implements Serializable {

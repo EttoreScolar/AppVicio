@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "feedback", schema = "bd1")
+@Table(name = "feedback", schema = "app_vicios")
 @Data
 public class Feedback {
 

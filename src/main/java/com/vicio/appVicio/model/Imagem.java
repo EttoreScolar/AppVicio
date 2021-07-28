@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "imagem", schema = "bd1")
+@Table(name = "imagem", schema = "app_vicios")
 @Data
 public class Imagem {
 

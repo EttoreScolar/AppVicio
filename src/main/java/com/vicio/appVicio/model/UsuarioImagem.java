@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name="usuario_imagem", schema="bd1")
+@Table(name="usuario_imagem", schema="app_vicios")
 @Data
 public class UsuarioImagem {
 
