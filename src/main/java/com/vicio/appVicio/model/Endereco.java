@@ -12,11 +12,12 @@ import javax.persistence.*;
 public class Endereco {
 
     @Id
-    @Column(name="id_usuario")
-    private Integer id_usuario;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_endereco")
+    private Integer id_endereco;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @PrimaryKeyJoinColumn(name="id_usuario", referencedColumnName="id_usuario")
+    @JoinColumn(name="id_usuario")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Usuario usuario;
 

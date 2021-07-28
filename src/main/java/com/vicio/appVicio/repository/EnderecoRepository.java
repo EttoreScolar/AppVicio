@@ -14,4 +14,10 @@ public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
             nativeQuery = true
     )
     Endereco buscaIdUsuario (@Param("id_usuario") Integer var1);
+
+    @Query(
+            value = "select * from endereco u where u.id_endereco = :id_endereco",
+            nativeQuery = true
+    )
+    Endereco buscaEnderecoId (@Param("id_endereco") Integer var1);
 }

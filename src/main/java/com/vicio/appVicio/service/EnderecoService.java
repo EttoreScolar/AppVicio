@@ -20,8 +20,8 @@ public class EnderecoService {
         return enderecoRepository.findAll();
     }
 
-    public Optional<Endereco> buscarPorId (Integer id) {
-        return enderecoRepository.findById(id);
+    public Endereco buscarPorId (Integer id) {
+        return enderecoRepository.buscaEnderecoId(id);
     }
 
     public Endereco buscaIdUsuario (Integer id) { return enderecoRepository.buscaIdUsuario(id); }
@@ -37,15 +37,13 @@ public class EnderecoService {
     }
 
     public void deletar (Integer id){
-        enderecoRepository.deleteById(id);
+        Endereco enderecoId = verificaId(id);
+        enderecoRepository.deleteById(enderecoId.getId_endereco());
     }
 
     public Endereco verificaId (Integer id){
-        Optional<Endereco> endereco = buscarPorId(id);
-        if (!endereco.isPresent()){
-            throw  new EmptyResultDataAccessException(1);
-        }
-        return endereco.get();
+        Endereco endereco = buscarPorId(id);
+        return endereco;
     }
 
 }

@@ -29,9 +29,9 @@ public class EnderecoController {
 
     @ApiOperation(value = "Listar por Id")
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Endereco>> buscarPorId (@PathVariable Integer id){
-        Optional<Endereco> endereco = enderecoService.buscarPorId(id);
-        return endereco.isPresent() ? ResponseEntity.ok(endereco) : ResponseEntity.notFound().build();
+    public ResponseEntity<Endereco> buscarPorId (@PathVariable Integer id){
+        Endereco endereco = enderecoService.buscarPorId(id);
+        return ResponseEntity.ok(endereco);
     }
 
     @ApiOperation(value = "Listar por Id de Usuário")
@@ -50,7 +50,7 @@ public class EnderecoController {
 
     @ApiOperation(value = "Atualizar")
     @PutMapping("/{id}")
-    public ResponseEntity<Endereco> atualizarendereco (@Valid Integer id, @PathVariable Endereco endereco){
+    public ResponseEntity<Endereco> atualizarendereco (@Valid @RequestParam Integer id, @RequestBody Endereco endereco){
         return ResponseEntity.ok(enderecoService.atualizarendereco(id, endereco));
     }
 

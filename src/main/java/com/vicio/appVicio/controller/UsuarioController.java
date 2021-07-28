@@ -43,7 +43,7 @@ public class UsuarioController {
 
     @ApiOperation(value = "Atualizar")
     @PutMapping("/{id}")
-    public ResponseEntity<Usuario> atualizarUsuario (@Valid Integer id, @PathVariable Usuario usuario){
+    public ResponseEntity<Usuario> atualizarUsuario (@Valid @RequestParam Integer id, @RequestBody Usuario usuario){
         return ResponseEntity.ok(usuarioService.atualizarUsuario(id, usuario));
     }
 
