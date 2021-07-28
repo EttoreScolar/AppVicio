@@ -1,30 +1,197 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>App Vicio | Endereço</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+        body {
+            color: #404E67;
+            background: #F5F7FA;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .table-wrapper {
+            width: 1000px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+        }
+
+        table.table {
+            table-layout: fixed;
+        }
+
+        table.table tr th, table.table tr td {
+            border-color: #e9e9e9;
+        }
+
+        table.table th i {
+            font-size: 13px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        table.table th:last-child {
+            width: 100px;
+        }
+
+        table.table td a {
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 5px;
+            min-width: 24px;
+        }
+
+        table.table td a.add {
+            color: #27C46B;
+        }
+
+        table.table td a.edit {
+            color: #FFC107;
+        }
+
+        table.table td a.delete {
+            color: #E34724;
+        }
+
+        table.table td i {
+            font-size: 19px;
+        }
+
+        table.table td a.add i {
+            font-size: 24px;
+            margin-right: -1px;
+            position: relative;
+            top: 3px;
+        }
+
+        table.table .form-control {
+            height: 32px;
+            line-height: 32px;
+            box-shadow: none;
+            border-radius: 2px;
+        }
+
+        table.table .form-control.error {
+            border-color: #f50000;
+        }
+
+        table.table td .add {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-<h1>Form</h1>
-<table>
-    <thead>
-    <tr>
-        <th>Rua</th>
-        <th>Numero</th>
-        <th>Cep</th>
-        <th>Cidade</th>
-        <th>UF</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="endereco: ${enderecos}">
-        <td th:text="${endereco.rua}"/>
-        <td th:text="${endereco.numero}"/>
-        <td th:text="${endereco.cep}"/>
-        <td th:text="${endereco.cidade}"/>
-        <td th:text="${endereco.uf}"/>
-    </tr>
-    </tbody>
-</table>
+
+<div class="container">
+    <div class="table-wrapper">
+        <div class="row">
+            <div class="col-10">
+                <h2>Endereço</h2>
+            </div>
+            <div class="col-2 text-end">
+                <button class="btn btn-info add-new" type="button"><i class="fa fa-plus"></i> Adicionar</button>
+            </div>
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Rua</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Cep</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">UF</th>
+                <th scope="col">Açoes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="endereco: ${enderecos}">
+                <th scope="row" th:text="${endereco.enderecoId}"/>
+                <td th:text="${endereco.rua}"/>
+                <td th:text="${endereco.numero}"/>
+                <td th:text="${endereco.cep}"/>
+                <td th:text="${endereco.cidade}"/>
+                <td th:text="${endereco.uf}"/>
+                <td>
+                    <a class="add" data-toggle="tooltip" title="Adicionar"><i class="material-icons"></i></a>
+                    <a class="edit" data-toggle="tooltip" title="Editar"><i class="material-icons"></i></a>
+                    <a class="delete" data-toggle="tooltip" title="Remover"><i class="material-icons"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        var actions = $("table td:last-child").html();
+        // Append table with add row form on add new button click
+        $(".add-new").click(function () {
+            $(this).attr("disabled", "disabled");
+            var index = $("table tbody tr:last-child").index();
+            var row = '<tr>' +
+                '<td></td>' +
+                '<td><input type="text" class="form-control" name="numero" id="numero"></td>' +
+                '<td><input type="text" class="form-control" name="rua" id="rua"></td>' +
+                '<td><input type="text" class="form-control" name="cep" id="cep"></td>' +
+                '<td><input type="text" class="form-control" name="cidade" id="cidade"></td>' +
+                '<td><input type="text" class="form-control" name="uf" id="uf"></td>' +
+                '<td>' + actions + '</td>' +
+                '</tr>';
+            $("table").append(row);
+            $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+        // Add row on add button click
+        $(document).on("click", ".add", function () {
+            var empty = false;
+            var input = $(this).parents("tr").find('input[type="text"]');
+            input.each(function () {
+                if (!$(this).val()) {
+                    $(this).addClass("error");
+                    empty = true;
+                } else {
+                    $(this).removeClass("error");
+                }
+            });
+            $(this).parents("tr").find(".error").first().focus();
+            if (!empty) {
+                input.each(function () {
+                    $(this).parent("td").html($(this).val());
+                });
+                $(this).parents("tr").find(".add, .edit").toggle();
+                $(".add-new").removeAttr("disabled");
+            }
+        });
+        // Edit row on edit button click
+        $(document).on("click", ".edit", function () {
+            $(this).parents("tr").find("td:not(:last-child)").each(function () {
+                $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
+            });
+            $(this).parents("tr").find(".add, .edit").toggle();
+            $(".add-new").attr("disabled", "disabled");
+        });
+        // Delete row on delete button click
+        $(document).on("click", ".delete", function () {
+            $(this).parents("tr").remove();
+            $(".add-new").removeAttr("disabled");
+        });
+    });
+</script>
 </body>
 </html>
