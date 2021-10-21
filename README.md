@@ -1,16 +1,13 @@
 # Trabalho da disciplina de Banco de Dados I
+Este projeto visa demonstrar a implementação de um pequeno CRUD para um aplicativo de doações utilizando SpringBoot e MySQL.
 
+📋 Pré-requisitos
+Java 8
 
-## Realizado por:
- 
-Ettore Scolar Neto		    	RA: 191021512
-
-Giovana Silva			         	RA: 191023698
-
-Natália Miyuki Sakai        RA: 191023493
-
-Vitor Trentim de Almeida		RA: 191021067
-
+🛠️ Construído com
+Maven
+MySQL
+SpringBoot
 
 
 ## Instruções:
@@ -22,4 +19,16 @@ Vitor Trentim de Almeida		RA: 191021067
 3- Rodar o projeto
 
 4- Interface local do Swagger para CRUD: http://localhost:8080/swagger-ui.html#/
+
+
+
+## Realizado por:
+ 
+Ettore Scolar Neto		    	RA: 191021512
+
+Giovana Silva			         	RA: 191023698
+
+Natália Miyuki Sakai        RA: 191023493
+
+Vitor Trentim de Almeida		RA: 191021067
 
