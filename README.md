@@ -2,12 +2,16 @@
 Este projeto visa demonstrar a implementação de um pequeno CRUD para um aplicativo de doações utilizando SpringBoot e MySQL.
 
 📋 Pré-requisitos
-Java 8
+
+*Java 8
 
 🛠️ Construído com
-Maven
-MySQL
-SpringBoot
+
+*Maven
+
+*MySQL
+
+*SpringBoot
 
 
 ## Instruções:
