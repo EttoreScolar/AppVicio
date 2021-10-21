@@ -1,5 +1,5 @@
 # Trabalho da disciplina de Banco de Dados I
-Este projeto visa demonstrar a implementação de um pequeno CRUD para um aplicativo de doações utilizando SpringBoot e MySQL.
+Este projeto visa demonstrar a implementação de um pequeno CRUD para um aplicativo de controle de vícios utilizando SpringBoot e MySQL.
 
 📋 Pré-requisitos
 
