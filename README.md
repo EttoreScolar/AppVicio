@@ -3,15 +3,15 @@ Este projeto visa demonstrar a implementação de um pequeno CRUD para um aplica
 
 📋 Pré-requisitos
 
-*Java 8
+ Java 8
 
 🛠️ Construído com
 
-*Maven
+ Maven
 
-*MySQL
+ MySQL
 
-*SpringBoot
+ SpringBoot
 
 
 ## Instruções:
